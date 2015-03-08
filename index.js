@@ -50,7 +50,7 @@ var startStream = function (terms) {
   stream.on('connect', function(request) {
     console.log('Connected to Twitter API');
   });
-   
+
   stream.on('disconnect', function(message) {
     console.log('Disconnected from Twitter API. Message: ' + message);
   });
@@ -79,9 +79,9 @@ var startStream = function (terms) {
     end = new Date().getTime();
     interval = end - start;
 
-    // If more than 10 secs then broadcast the last tweet
+    // If more than 10 secs OR we have 100 tweeets then broadcast all tweets
     if (interval >= 10000) {
-      var slice = tweetsBuffer.slice(0, 1);
+      var slice = tweetsBuffer;
       console.log(slice);
       console.log('EMIT TWEET');
       io.sockets.emit('tweets', slice);

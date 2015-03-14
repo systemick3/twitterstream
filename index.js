@@ -64,8 +64,9 @@ var startStream = function (terms) {
     // Format the tweet
     msg = {};
     msg.text = tweet.text;
-    msg.text = tweet.text,
-    msg.created_at = tweet.created_at
+    msg.text = tweet.text;
+    msg.created_at = tweet.created_at;
+    msg.id_str = tweet.id_str;
     msg.user = {
         name: tweet.user.name,
         screen_name: tweet.user.screen_name,

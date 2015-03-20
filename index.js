@@ -67,6 +67,7 @@ var startStream = function (terms) {
     msg.text = tweet.text;
     msg.created_at = tweet.created_at;
     msg.id_str = tweet.id_str;
+    msg.user_mentions = tweet.entities.user_mentions;
     msg.user = {
         name: tweet.user.name,
         screen_name: tweet.user.screen_name,
@@ -98,8 +99,6 @@ var startStream = function (terms) {
 
   io.sockets.on('connection', function(socket) {
       console.log('Client connected !');
-
-      var newTerm = '#' + socket.request._query.michael;
 
       if (nbOpenSockets <= 0) {
         nbOpenSockets = 0;

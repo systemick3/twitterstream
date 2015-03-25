@@ -78,11 +78,12 @@ var startStream = function (terms) {
     tweetsBuffer.push(msg);
 
     // How long is it since start was last set?
+    // Not currently used but may be needed at some point
     end = new Date().getTime();
     interval = end - start;
 
-    // If more than 10 secs OR we have 100 tweeets then broadcast all tweets
-    if (interval >= 10000) {
+    // If we have 10 tweeets then broadcast all tweets
+    if (tweetsBuffer.length >= 10) {
       var slice = tweetsBuffer;
       console.log(slice);
       console.log('EMIT TWEET');

@@ -85,8 +85,8 @@ var startStream = function (terms) {
     // If we have 10 tweeets then broadcast all tweets
     if (tweetsBuffer.length >= 10) {
       var slice = tweetsBuffer;
-      console.log(slice);
-      console.log('EMIT TWEET');
+      //console.log(slice);
+      //console.log('EMIT TWEET');
       io.sockets.emit('tweets', slice);
 
       // Discard the rest of the tweets

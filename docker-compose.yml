@@ -1,0 +1,18 @@
+version: '2'
+
+services:
+
+  app:
+    build:
+      context: .
+      dockerfile: .docker/Dockerfile
+    ports:
+      - "3002:3002"
+    volumes:
+      - .:/srv/app
+    networks:
+      - nodeapp-network
+      
+networks:
+  nodeapp-network:
+    driver: bridge
